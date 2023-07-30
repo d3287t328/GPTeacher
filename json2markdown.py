@@ -22,7 +22,9 @@ def json_to_markdown(json_file, output_dir):
             markdown_output += f"{md(item)}\n\n"
 
     # Write the output to a Markdown file.
-    output_file = os.path.join(output_dir, os.path.splitext(os.path.basename(json_file))[0] + '.md')
+    output_file = os.path.join(
+        output_dir, f'{os.path.splitext(os.path.basename(json_file))[0]}.md'
+    )
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     with open(output_file, 'w', encoding='utf-8') as file:
         file.write(markdown_output)
